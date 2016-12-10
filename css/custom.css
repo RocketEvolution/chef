@@ -120,13 +120,15 @@ header .header-main-scrolled .navigation ul .active a:hover { background: white;
 .banner .banner-content { padding: 210px 70px 0px 50px; }
 .banner .banner-content .banner-content-text { color: #FFF; padding: 20px 30px 30px 30px; background: rgba(0, 0, 0, 0.75); }
 
+.bannerheader { background: #F90; z-index: -999; }
+
 section { padding-top: 50px; padding-bottom: 50px; }
 
 .content-menu { text-align: center; }
 .content-menu .content-menu-item .content-menu-icon { border-radius: 50%; -o-border-radius: 50%; -ms-border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; transition: all 300ms ease-IN; -o-transition: all 300ms ease; -ms-transition: all 300ms ease; -moz-transition: all 300ms ease; -webkit-transition: all 300ms ease; box-shadow: 0 0 0px 0px rgba(255, 0, 0, 0); -o-box-shadow: 0 0 0px 0px rgba(255, 0, 0, 0); -ms-box-shadow: 0 0 0px 0px rgba(255, 0, 0, 0); -moz-box-shadow: 0 0 0px 0px rgba(255, 0, 0, 0); -webkit-box-shadow: 0 0 0px 0px rgba(255, 0, 0, 0); background: #DDD; overflow: hidden; border: solid 1px #DDD; }
 .content-menu .content-menu-item .content-menu-icon img { transition: all 150ms ease-IN; -o-transition: all 150ms ease; -ms-transition: all 150ms ease; -moz-transition: all 150ms ease; -webkit-transition: all 150ms ease; border-radius: 50%; -o-border-radius: 50%; -ms-border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; border: solid 4px #FFF; width: 100%; }
 .content-menu .content-menu-item .content-menu-title { transition: all 150ms ease-IN; -o-transition: all 150ms ease; -ms-transition: all 150ms ease; -moz-transition: all 150ms ease; -webkit-transition: all 150ms ease; padding-top: 10px; padding-bottom: 40px; color: #555; }
-.content-menu .content-menu-item:hover .content-menu-icon { box-shadow: 0 0 20px 0px red; -o-box-shadow: 0 0 20px 0px red; -ms-box-shadow: 0 0 20px 0px red; -moz-box-shadow: 0 0 20px 0px red; -webkit-box-shadow: 0 0 20px 0px red; border: solid 1px #F00; }
+.content-menu .content-menu-item:hover .content-menu-icon { box-shadow: 0 0 15px 0px red; -o-box-shadow: 0 0 15px 0px red; -ms-box-shadow: 0 0 15px 0px red; -moz-box-shadow: 0 0 15px 0px red; -webkit-box-shadow: 0 0 15px 0px red; border: solid 1px #F00; }
 .content-menu .content-menu-item:hover .content-menu-icon img { border: solid 8px #FFF; }
 .content-menu .content-menu-item:hover .content-menu-title { color: #F00; }
 

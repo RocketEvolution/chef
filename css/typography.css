@@ -17,11 +17,11 @@ html, body {
 	font-family: "Circular Normal";
 }
 .text-bold {
-	font-family: "Circular Bold", sans-serif;
+	font-family: "Circular Bold", arial bold, arial;
 }
 .text-black {
-	font-family: "Circular Black", sans-serif;
+	font-family: "Circular Black", arial black, arial;
 }
 .text-normal {
-	font-family: 'Circular Normal', sans-serif;
+	font-family: 'Circular Normal', arial;
 }
