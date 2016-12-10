@@ -54,6 +54,10 @@ a {
 .shadow-sm { @include shadow(10px); }
 .shadow-md { @include shadow(20px); }
 .shadow-lg { @include shadow(40px); }
+.textshadow-xs { @include textshadow(3px); }
+.textshadow-sm { @include textshadow(5px); }
+.textshadow-md { @include textshadow(8px); }
+.textshadow-lg { @include textshadow(12px); }
 .tab-xs { padding-left: 5px; }
 .tab-sm { padding-left: 10px; }
 .tab-md { padding-left: 20px; }
@@ -66,6 +70,8 @@ a {
 .text-darkgrey { color: $darkgrey !important; }
 .text-darkergrey { color: $darkergrey !important; }
 .text-darkestgrey { color: $darkestgrey !important; }
+.text-red { color: $red !important; }
+.text-orange { color: $orange !important; }
 .text-underline { text-decoration: underline !important; }
 
 
@@ -259,7 +265,7 @@ $responsive-menu-lineheight: 70px;
 
 
 // BANNER (VIDEO & CONTENT)
-$banner-height: 700px;
+$banner-height: 680px;
 .banner {
 	height: $banner-height;
 	z-index: 1;
@@ -272,13 +278,90 @@ $banner-height: 700px;
 		}
 	}
 	.banner-content {
-		padding: 240px 70px 0px 50px;
+		padding: 210px 70px 0px 50px;
 		.banner-content-text {
 			color: #FFF;
-			padding: 20px 40px 30px 40px;
+			padding: 20px 30px 30px 30px;
 			background: rgba(#000, 0.75);
 		}
 	}
+}
+
+
+
+
+// CONTENT
+$content-space: 50px;
+section {
+	padding-top: $content-space;
+	padding-bottom: $content-space;
+}
+.content-menu {
+	text-align: center;
+	.content-menu-item {
+		.content-menu-icon {
+			@include round();
+			@include transition(300ms);
+			box-shadow: 0 0 0px 0px rgba($red, 0);
+			-o-box-shadow: 0 0 0px 0px rgba($red, 0);
+			-ms-box-shadow: 0 0 0px 0px rgba($red, 0);
+			-moz-box-shadow: 0 0 0px 0px rgba($red, 0);
+			-webkit-box-shadow: 0 0 0px 0px rgba($red, 0);
+			background: $lightestgrey;
+			overflow: hidden;
+			border: solid 1px $lightestgrey;
+			img {
+				@include transition(150ms);
+				@include round();
+				border: solid 4px #FFF;
+				width: 100%;
+			}
+		}
+		.content-menu-title {
+			@include transition(150ms);
+			padding-top: 10px;
+			padding-bottom: 40px;
+			color: $darkgrey;
+		}
+		&:hover {
+			.content-menu-icon {
+				box-shadow: 0 0 20px 0px rgba($red, 1);
+				-o-box-shadow: 0 0 20px 0px rgba($red, 1);
+				-ms-box-shadow: 0 0 20px 0px rgba($red, 1);
+				-moz-box-shadow: 0 0 20px 0px rgba($red, 1);
+				-webkit-box-shadow: 0 0 20px 0px rgba($red, 1);
+				border: solid 1px $red;
+				img { border: solid 8px #FFF; }
+			}
+			.content-menu-title { color: $red; }
+		}
+	}
+}
+
+
+
+
+
+// BOOTSTRAP OVERRIDE
+.btn {
+	@include transition(150ms);
+	border: none;
+}
+.btn-default {
+	background: $blue;
+	&:hover { background: $blue - 50; }
+}
+.btn-success {
+	background: $green;
+	&:hover { background: $green - 50; }
+}
+.btn-warning {
+	background: $orange;
+	&:hover { background: $orange - 50; }
+}
+.btn-danger {
+	background: $red;
+	&:hover { background: $red - 50; }
 }
 
 
@@ -290,34 +373,33 @@ $banner-height: 700px;
 }
 @media (min-width: 992px) and (max-width: 1199px) { // MD
 	.banner {
-		height: $banner-height - 60px;
+		height: $banner-height - 40px;
 		.banner-image {
-			min-height: $banner-height - 60px;
-			img { padding-left: 0px; }
+			min-height: $banner-height - 40px;
 		}
 		.banner-content {
-			padding: 210px 40px 0px 50px;
-			.banner-content-text { padding: 15px 35px 25px 35px; }
+			padding: 180px 40px 0px 50px;
+			.banner-content-text { padding: 15px 25px 25px 25px; }
 		}
 	}
 }
 @media (min-width: 768px) and (max-width: 991px) { // SM
 	header { .header-top { .contact { text-align: center; } } }
 	.banner {
-		height: $banner-height - 160px;
+		height: $banner-height - 110px;
 		.banner-content {
-			padding: 160px 10px 0px 10px;
-			.banner-content-text { padding: 15px 35px 25px 35px; }
+			padding: 150px 10px 0px 10px;
+			.banner-content-text { padding: 15px 25px 25px 25px; }
 		}
 	}
 }
 @media (max-width: 767px) { // XS
 	header { .header-top { .contact { text-align: center; } } }
 	.banner {
-		height: $banner-height - 180px;
+		height: $banner-height - 50px;
 		.banner-content {
-			padding: 160px 0px 0px 0px;
-			.banner-content-text { padding: 10px 23px 18px 23px; }
+			padding: 135px 0px 0px 0px;
+			.banner-content-text { padding: 10px 18px 18px 18px; }
 		}
 	}
 }
