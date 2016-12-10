@@ -1,0 +1,323 @@
+@import "template";
+
+
+
+
+
+// DEFAULT
+body {
+	@extend %clearspace-extend;
+	@include transition();
+	background: #FFF;
+	font-size: 16px;
+	line-height: 1.5em;
+	width: 100%;
+	color: $darkergrey;
+	overflow-x: hidden;
+}
+ul,li {
+	@extend %clearspace-extend;
+	list-style: none;
+}
+h1,h2,h3,h4,h5,h6 {
+	@extend %clearspace-extend;
+	font-weight: normal;
+	line-height: 1.4em;
+}
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
+h4 { font-size: 1.75em; }
+h5 { font-size: 1.5em; }
+h6 { font-size: 1.25em; }
+a {
+	@include transition(200ms);
+	color: $red;
+	&:hover {
+		color: $orange;
+		text-decoration: none;
+	}
+}
+
+
+
+
+
+// CUSTOM
+.clearspace { @include clearspace(); }
+.round { @include round(50%); }
+.round-xs { @include round(5px); }
+.round-sm { @include round(10px); }
+.round-md { @include round(20px); }
+.round-lg { @include round(40px); }
+.shadow-xs { @include shadow(5px); }
+.shadow-sm { @include shadow(10px); }
+.shadow-md { @include shadow(20px); }
+.shadow-lg { @include shadow(40px); }
+.tab-xs { padding-left: 5px; }
+.tab-sm { padding-left: 10px; }
+.tab-md { padding-left: 20px; }
+.tab-lg { padding-left: 40px; }
+// CUSTOM TEXT
+.text-lightestgrey { color: $lightestgrey !important; }
+.text-lightergrey { color: $lightergrey !important; }
+.text-lightgrey { color: $lightgrey !important; }
+.text-grey { color: $grey !important; }
+.text-darkgrey { color: $darkgrey !important; }
+.text-darkergrey { color: $darkergrey !important; }
+.text-darkestgrey { color: $darkestgrey !important; }
+.text-underline { text-decoration: underline !important; }
+
+
+
+
+// HEADER
+$header-top-height: 30px;
+$header-main-height: 70px;
+$header-main-height-scrolled: 50px;
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 999999998;
+	.header-top {
+		@include transition(250ms);
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: $header-top-height;
+		line-height: $header-top-height;
+		color: $lightergrey;
+		background: rgba(#000, 0.85);
+		font-size: 0.75em;
+		overflow: hidden;
+		.socialmedia { font-size: 1.6em; }
+		.contact { text-align: right; }
+		a {
+			color: $lightergrey;
+			&:hover { color: #FFF; }
+		}
+	}
+	.header-main {
+		@include transition(250ms);
+		position: absolute;
+		top: $header-top-height;
+		left: 0px;
+		width: 100%;
+		height: $header-main-height;
+		line-height: $header-main-height;
+		color: #FFF;
+		background: rgba(#000, 0.5);
+		overflow: hidden;
+		.logo {
+			img {
+				@include transition(100ms);
+				max-width: 275px;
+				padding-top: 8px;
+			}
+		}
+		.navigation {
+			@include transition(100ms);
+			text-align: right;
+			line-height: $header-main-height;
+			font-size: 1.2em;
+			.fa { font-size: 1.4em; }
+			ul {
+				li {
+					display: inline-block;
+					border-right: solid 1px rgba(#000, 0.25);
+					&:first-child { border-left: solid 1px rgba(#000, 0.25); }
+					a {
+						color: #FFF;
+						display: block;
+						padding: 0px 18px;
+						&:hover {
+							background: rgba(#FFF, 0.2);
+						}
+					}
+				}
+				.active {
+					& a {
+						color: $darkestgrey;
+						background: rgba(#FFF, 0.75);
+						&:hover { background: rgba(#FFF, 1); }
+					}
+				}
+			}
+		}
+		.responsive-button {
+			.responsive-button-bar {
+				display: block;
+				width: 25px;
+				height: 5px;
+				border-radius: 5px;
+				margin-bottom: 3px;
+				margin-left: 8px;
+				background: #FFF;
+			}
+		}
+	}
+
+	// SCROLLED
+	.header-top-scrolled {
+		top: $header-top-height * -1;
+		background: rgba($red, 1);
+	}
+	.header-main-scrolled {
+		top: 0px;
+		height: $header-main-height-scrolled;
+		line-height: $header-main-height-scrolled;
+		color: #FFF;
+		background: rgba(#000, 0.8);
+		.logo {
+			img {
+				max-width: 200px;
+				padding-top: 7px;
+			}
+		}
+		.navigation {
+			line-height: $header-main-height-scrolled;
+			font-size: 0.85em;
+			ul {
+				padding: 0px;
+				margin: 0px;
+				list-style: none;
+				li {
+					display: inline-block;
+					a {
+						color: #FFF;
+						display: block;
+						padding: 0px 18px;
+						&:hover {
+							background: rgba(#FFF, 0.2);
+						}
+					}
+				}
+				.active {
+					& a {
+						color: $darkestgrey;
+						background: rgba(#FFF, 0.9);
+						&:hover { background: rgba(#FFF, 1); }
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// RESPONSIVE MENU
+$responsive-menu-lineheight: 70px;
+#responsive-menu {
+	@include transition();
+	position: fixed;
+	top: 0px;
+	right: 100% * -1;
+	width: 65%;
+	height: 100%;
+	background: $darkergrey;
+	line-height: $responsive-menu-lineheight;
+	font-size: 1.5em;
+	z-index: 999999999;
+	ul {
+		li {
+			a {
+				display: block;
+				padding-left: 15px;
+				border-bottom: solid 1px rgba(#000, 0.25);
+				color: #FFF;
+				&:hover {
+					background: rgba(#FFF, 0.15);
+					padding-left: 25px;
+				}
+			}
+			.active {
+				background: #FFF;
+				color: $red;
+				&:hover {
+					background: #FFF;
+				}
+			}
+		}
+	}
+	.responsive-button-close {
+		display: block;
+		background: $red;
+		padding-left: 15px;
+		text-align: left;
+		font-size: 1em;
+		line-height: $responsive-menu-lineheight - 10px;
+		border: none;
+		border-radius: 0;
+	}
+}
+.responsive-menu-show {
+	right: 0px !important;
+}
+
+
+// BANNER (VIDEO & CONTENT)
+$banner-height: 700px;
+.banner {
+	height: $banner-height;
+	z-index: 1;
+	.banner-image {
+		min-height: $banner-height;
+		img {
+			padding-left: 10px;
+			position: absolute;
+			bottom: 0px;
+		}
+	}
+	.banner-content {
+		padding: 240px 70px 0px 50px;
+		.banner-content-text {
+			color: #FFF;
+			padding: 20px 40px 30px 40px;
+			background: rgba(#000, 0.75);
+		}
+	}
+}
+
+
+
+
+// MEDIA QUERY
+@media (min-width: 1200px) { // LG
+
+}
+@media (min-width: 992px) and (max-width: 1199px) { // MD
+	.banner {
+		height: $banner-height - 60px;
+		.banner-image {
+			min-height: $banner-height - 60px;
+			img { padding-left: 0px; }
+		}
+		.banner-content {
+			padding: 210px 40px 0px 50px;
+			.banner-content-text { padding: 15px 35px 25px 35px; }
+		}
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) { // SM
+	header { .header-top { .contact { text-align: center; } } }
+	.banner {
+		height: $banner-height - 160px;
+		.banner-content {
+			padding: 160px 10px 0px 10px;
+			.banner-content-text { padding: 15px 35px 25px 35px; }
+		}
+	}
+}
+@media (max-width: 767px) { // XS
+	header { .header-top { .contact { text-align: center; } } }
+	.banner {
+		height: $banner-height - 180px;
+		.banner-content {
+			padding: 160px 0px 0px 0px;
+			.banner-content-text { padding: 10px 23px 18px 23px; }
+		}
+	}
+}
