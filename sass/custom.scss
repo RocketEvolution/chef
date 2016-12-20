@@ -38,6 +38,11 @@ a {
 		text-decoration: none;
 	}
 }
+hr {
+	width: 60px;
+	max-width: 200px;
+	border-color: $red;
+}
 
 
 
@@ -62,6 +67,13 @@ a {
 .tab-sm { padding-left: 10px; }
 .tab-md { padding-left: 20px; }
 .tab-lg { padding-left: 40px; }
+.maxwidth-lg { max-width: 900px; margin: 0px auto; }
+.maxwidth-md { max-width: 700px; margin: 0px auto; }
+.maxwidth-sm { max-width: 500px; margin: 0px auto; }
+.maxwidth-xs { max-width: 300px; margin: 0px auto; }
+.image-max-fit { max-width: 100%; }
+.image-fit { width: 100%; }
+.background-white { background: #FFF; }
 // CUSTOM TEXT
 .text-lightestgrey { color: $lightestgrey !important; }
 .text-lightergrey { color: $lightergrey !important; }
@@ -88,7 +100,7 @@ header {
 	width: 100%;
 	z-index: 999999998;
 	.header-top {
-		@include transition(250ms);
+		@include transition(500ms);
 		position: absolute;
 		top: 0px;
 		left: 0px;
@@ -107,7 +119,7 @@ header {
 		}
 	}
 	.header-main {
-		@include transition(250ms);
+		@include transition(500ms);
 		position: absolute;
 		top: $header-top-height;
 		left: 0px;
@@ -119,7 +131,7 @@ header {
 		overflow: hidden;
 		.logo {
 			img {
-				@include transition(100ms);
+				@include transition(200ms);
 				max-width: 275px;
 				padding-top: 8px;
 			}
@@ -278,7 +290,7 @@ $banner-height: 680px;
 		}
 	}
 	.banner-content {
-		padding: 210px 70px 0px 50px;
+		padding: 200px 70px 0px 50px;
 		.banner-content-text {
 			color: #FFF;
 			padding: 20px 30px 30px 30px;
@@ -295,16 +307,37 @@ $banner-height: 680px;
 
 
 // CONTENT
-$content-space: 50px;
+$content-space: 100px;
 section {
 	padding-top: $content-space;
 	padding-bottom: $content-space;
 }
+.section-white {
+	background: #FFF;
+}
+.section-grey {
+	background: #F0F0F0;
+}
+.section-design {
+	background: url("../images/designbackground.jpg") center center repeat $darkergrey;
+	padding: 0px;
+	margin: 0px;
+	color: #FFF;
+	.section-overlay-dark {
+		@include transition(300ms);
+		padding-top: $content-space;
+		padding-bottom: $content-space;
+		width: 100%;
+		height: 100%;
+		background: rgba(#000, 0.7);
+		&:hover { background: rgba(#000, 0.82); }
+	}
+}
 .content-menu {
 	text-align: center;
 	.content-menu-item {
+		padding: 30px 5px 0px 5px;
 		.content-menu-icon {
-			@include round();
 			@include transition(300ms);
 			box-shadow: 0 0 0px 0px rgba($red, 0);
 			-o-box-shadow: 0 0 0px 0px rgba($red, 0);
@@ -316,28 +349,225 @@ section {
 			border: solid 1px $lightestgrey;
 			img {
 				@include transition(150ms);
-				@include round();
-				border: solid 4px #FFF;
+				border: solid 5px #FFF;
 				width: 100%;
 			}
 		}
 		.content-menu-title {
 			@include transition(150ms);
 			padding-top: 10px;
-			padding-bottom: 40px;
 			color: $darkgrey;
 		}
+		hr { @include transition(300ms); border-color: $lightergrey; margin-top: 10px; }
 		&:hover {
 			.content-menu-icon {
+				box-shadow: 0 0 15px 0px rgba($red, 0.5);
+				-o-box-shadow: 0 0 15px 0px rgba($red, 0.5);
+				-ms-box-shadow: 0 0 15px 0px rgba($red, 0.5);
+				-moz-box-shadow: 0 0 15px 0px rgba($red, 0.5);
+				-webkit-box-shadow: 0 0 15px 0px rgba($red, 0.5);
+				border: solid 1px $red;
+				img { border: solid 10px #FFF; }
+			}
+			.content-menu-title { color: $red; }
+			hr { width: 70%; border-color: $red; }
+		}
+	}
+}
+.content-board {
+	background: url("../images/boardbackground.jpg") center center no-repeat;
+	.content-board-container {
+		@include transition(1000ms);
+		background: rgba($darkestgrey, 1);
+		padding: 15px;
+		.content-board-innercontainer {
+			@include transition(500ms);
+			border: solid 4px #FFF;
+			box-shadow: 0 0 15px 0px rgba($red, 0);
+			-o-box-shadow: 0 0 15px 0px rgba($red, 0);
+			-ms-box-shadow: 0 0 15px 0px rgba($red, 0);
+			-moz-box-shadow: 0 0 15px 0px rgba($red, 0);
+			-webkit-box-shadow: 0 0 15px 0px rgba($red, 0);
+			padding: 20px;
+			min-height: 200px;
+			color: #FFF;
+		}
+		hr {
+			@include transition(250ms);
+		}
+	}
+	&:hover {
+		.content-board-container {
+			background: rgba($darkestgrey, 0.7);
+			padding: 15px;
+			.content-board-innercontainer {
+				border-color: $red;
 				box-shadow: 0 0 15px 0px rgba($red, 1);
 				-o-box-shadow: 0 0 15px 0px rgba($red, 1);
 				-ms-box-shadow: 0 0 15px 0px rgba($red, 1);
 				-moz-box-shadow: 0 0 15px 0px rgba($red, 1);
 				-webkit-box-shadow: 0 0 15px 0px rgba($red, 1);
-				border: solid 1px $red;
-				img { border: solid 8px #FFF; }
 			}
-			.content-menu-title { color: $red; }
+		}
+		hr {
+			width: 70%;
+			border-color: $red;
+		}
+	}
+}
+.content-follow {
+	hr { @include transition(500ms); }
+	.fa {
+		@include transition(500ms);
+		color: #FFF;
+		font-size: 3em;
+		padding: 0px 1px;
+		&:hover {
+			text-shadow: 0px 0px 20px rgba(#FFF, 0.75);
+			-o-text-shadow: 0px 0px 20px rgba(#FFF, 0.75);
+			-ms-text-shadow: 0px 0px 20px rgba(#FFF, 0.75);
+			-moz-text-shadow: 0px 0px 20px rgba(#FFF, 0.75);
+			-webkit-text-shadow: 0px 0px 20px rgba(#FFF, 0.75);
+		}
+	}
+	&:hover {
+		hr { width: 70%; }
+	}
+}
+
+
+
+
+// FOOTER
+.footer {
+	@extend %clearspace-extend;
+	background: $darkestgrey - 50;
+	color: $grey;
+	.footer-form {
+		min-height: 100px;
+		line-height: 100px;
+		background: url("../images/designbackground-small.jpg") center center repeat $darkergrey;
+		font-size: 1.25em;
+		color: #FFF;
+		.footer-form-container {
+			@include transition(500ms);
+			background: rgba(#000, 0.6);
+			width: 100%;
+			height: 100%;
+			.footer-form-content {
+				height: 100px;
+				overflow: hidden;
+				.footer-form-title {
+					font-size: 1.5em;
+					padding-right: 10px;
+				}
+			}
+			.footer-form-text {
+				@include transition(300ms);
+				width: 100%;
+				height: 50px;
+				padding: 20px;
+				background: rgba(#000, 0.25);
+				border: solid 1px $red - 50;
+				font-size: 0.8em;
+				color: #FFF !important;
+				&:hover {
+					background: rgba(#000, 0.5);
+					border: solid 1px $red;
+				}
+				&:active { background: #FFF; }
+			}
+			.footer-form-button {
+				@include transition(300ms);
+				width: 90%;
+				height: 50px;
+				line-height: 45px;
+				background: rgba($red - 50, 1);
+				border: solid 1px rgba($red - 50, 1);
+				&:hover {
+					border: solid 1px rgba($red, 1);
+					background: rgba($red, 1);
+				}
+			}
+			&:hover { background: rgba(#000, 0.75); }
+		}
+	}
+	.footer-content {
+		padding: 70px 0px 40px 0px;
+		h5 {
+			color: #FFF;
+			padding-bottom: 10px;
+		}
+		.footer-content-list {
+			li {
+				line-height: 0.9em;
+				padding-bottom: 12px;
+				&:hover { color: $lightestgrey; }
+			}
+		}
+		.footer-content-thumb {
+			li {
+				@extend %clearspace-extend;
+				width: 29%;
+				padding: 2px;
+				display: inline-block;
+				img {
+					@include transition(300ms);
+					width: 100%;
+					opacity: 0.5;
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	.footer-bottom {
+		@include transition(500ms);
+		color: $lightergrey;
+		background: $darkestgrey - 50;
+		padding-bottom: 30px;
+		hr {
+			@include transition(500ms);
+			border-color: $darkestgrey + 10;
+			max-width: 500px;
+			width: 70%;
+		}
+		.copyright, .rocket {
+			text-align: center;
+			font-size: 0.85em;
+		}
+		a {
+			text-shadow: 1px 1px 1px rgba($red, 0);
+			-o-text-shadow: 1px 1px 1px rgba($red, 0);
+			-ms-text-shadow: 1px 1px 1px rgba($red, 0);
+			-moz-text-shadow: 1px 1px 1px rgba($red, 0);
+			-webkit-text-shadow: 1px 1px 1px rgba($red, 0);
+		}
+		&:hover {
+			color: #FFF;
+			background: $darkestgrey - 5;
+			hr {
+				border-color: $grey;
+				max-width: 700px;
+				width: 80%;
+				box-shadow: 0 0 8px 1px rgba(#FFF, 0.2);
+				-o-box-shadow: 0 0 8px 1px rgba(#FFF, 0.2);
+				-ms-box-shadow: 0 0 8px 1px rgba(#FFF, 0.2);
+				-moz-box-shadow: 0 0 8px 1px rgba(#FFF, 0.2);
+				-webkit-box-shadow: 0 0 8px 1px rgba(#FFF, 0.2);
+			}
+			a {
+				color: $blue;
+				&:hover {
+					color: $blue + 100;
+					text-shadow: 1px 1px 15px rgba($blue + 100, 0.75);
+					-o-text-shadow: 1px 1px 15px rgba($blue + 100, 0.75);
+					-ms-text-shadow: 1px 1px 15px rgba($blue + 100, 0.75);
+					-moz-text-shadow: 1px 1px 15px rgba($blue + 100, 0.75);
+					-webkit-text-shadow: 1px 1px 15px rgba($blue + 100, 0.75);
+				}
+			}
 		}
 	}
 }
@@ -350,10 +580,11 @@ section {
 .btn {
 	@include transition(150ms);
 	border: none;
+	border-radius: 0px;
 }
 .btn-default {
-	background: $blue;
-	&:hover { background: $blue - 50; }
+	background: $lightestgrey;
+	&:hover { background: $lightestgrey - 50; }
 }
 .btn-success {
 	background: $green;

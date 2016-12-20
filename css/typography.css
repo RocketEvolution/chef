@@ -14,7 +14,7 @@
 	src: url('../fonts/CircularStd-Book.otf');
 }
 html, body {
-	font-family: "Circular Normal";
+	font-family: "Circular Normal", arial;
 }
 .text-bold {
 	font-family: "Circular Bold", arial bold, arial;
