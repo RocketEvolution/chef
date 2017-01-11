@@ -75,6 +75,7 @@ hr {
 .image-fit { width: 100%; }
 .background-white { background: #FFF; }
 // CUSTOM TEXT
+.text-white { color: #FFF !important; }
 .text-lightestgrey { color: $lightestgrey !important; }
 .text-lightergrey { color: $lightergrey !important; }
 .text-lightgrey { color: $lightgrey !important; }
@@ -277,7 +278,7 @@ $responsive-menu-lineheight: 70px;
 
 
 // BANNER (VIDEO & CONTENT)
-$banner-height: 680px;
+$banner-height: 600px;
 .banner {
 	height: $banner-height;
 	z-index: 1;
@@ -290,11 +291,12 @@ $banner-height: 680px;
 		}
 	}
 	.banner-content {
-		padding: 200px 70px 0px 50px;
+		padding: 180px 70px 0px 50px;
 		.banner-content-text {
 			color: #FFF;
 			padding: 20px 30px 30px 30px;
 			background: rgba(#000, 0.75);
+			border-bottom: solid 10px #000;
 		}
 	}
 }
@@ -613,7 +615,7 @@ section {
 			min-height: $banner-height - 40px;
 		}
 		.banner-content {
-			padding: 180px 40px 0px 50px;
+			padding: 150px 40px 0px 50px;
 			.banner-content-text { padding: 15px 25px 25px 25px; }
 		}
 	}
@@ -623,7 +625,7 @@ section {
 	.banner {
 		height: $banner-height - 110px;
 		.banner-content {
-			padding: 150px 10px 0px 10px;
+			padding: 130px 10px 0px 10px;
 			.banner-content-text { padding: 15px 25px 25px 25px; }
 		}
 	}
