@@ -47,7 +47,6 @@ hr {
 
 
 
-
 // CUSTOM
 .clearspace { @include clearspace(); }
 .round { @include round(50%); }
@@ -72,6 +71,7 @@ hr {
 .maxwidth-sm { max-width: 500px; margin: 0px auto; }
 .maxwidth-xs { max-width: 300px; margin: 0px auto; }
 .image-max-fit { max-width: 100%; }
+.image-max-fit2 { width: 100%; max-width: 400px; }
 .image-fit { width: 100%; }
 .background-white { background: #FFF; }
 // CUSTOM TEXT
@@ -252,13 +252,11 @@ $responsive-menu-lineheight: 70px;
 					padding-left: 25px;
 				}
 			}
-			.active {
-				background: #FFF;
-				color: $red;
-				&:hover {
-					background: #FFF;
-				}
-			}
+		}
+		.active {
+			background: #FFF;
+			a { color: $red; }
+			&:hover { background: #FFF; }
 		}
 	}
 	.responsive-button-close {
@@ -279,9 +277,11 @@ $responsive-menu-lineheight: 70px;
 
 // BANNER (VIDEO & CONTENT)
 $banner-height: 600px;
+$banner-innerpage-height: 300px;
 .banner {
 	height: $banner-height;
 	z-index: 1;
+	overflow: hidden;
 	.banner-image {
 		min-height: $banner-height;
 		img {
@@ -291,18 +291,22 @@ $banner-height: 600px;
 		}
 	}
 	.banner-content {
-		padding: 180px 70px 0px 50px;
+		padding: 190px 70px 0px 50px;
 		.banner-content-text {
 			color: #FFF;
 			padding: 20px 30px 30px 30px;
 			background: rgba(#000, 0.75);
-			border-bottom: solid 10px #000;
 		}
 	}
 }
 .bannerheader {
 	background: #F90;
 	z-index: -999;
+}
+.banner-profile {
+	height: $banner-innerpage-height !important;
+	padding-top: $banner-innerpage-height/2;
+	background: url("../images/banner2.jpg") no-repeat center center;
 }
 
 
@@ -576,6 +580,58 @@ section {
 
 
 
+.portfolio {
+	text-align: center;
+	img { padding: 0px 20px; }
+	.portfolio-content {
+		height: 150px;
+		display: block;
+	}
+}
+
+
+
+
+// CONTACT
+.contact-form {
+	.input-field {
+		margin-bottom: 10px;
+	}
+	.form-control {
+		border: 1px solid #ececec;
+		border-radius: 0;
+		box-shadow: none;
+		color: #818181;
+		font-size: 16px;
+		height: 50px;
+	}
+	textarea.form-control {
+		width: 100%;
+		height: 165px;
+	}
+}
+.contact-details {
+	h3 {
+		border-bottom: 1px solid #008ecc;
+		font-weight: 700;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+		text-transform: uppercase;
+	}
+	p {
+		line-height: 30px;
+		i {
+			margin-right: 10px;
+		}
+	}
+	span {
+		display: block;
+		margin-left: 27px;
+	}
+}
+
+
+
 
 
 // BOOTSTRAP OVERRIDE
@@ -615,7 +671,7 @@ section {
 			min-height: $banner-height - 40px;
 		}
 		.banner-content {
-			padding: 150px 40px 0px 50px;
+			padding: 160px 40px 0px 50px;
 			.banner-content-text { padding: 15px 25px 25px 25px; }
 		}
 	}
@@ -625,7 +681,7 @@ section {
 	.banner {
 		height: $banner-height - 110px;
 		.banner-content {
-			padding: 130px 10px 0px 10px;
+			padding: 140px 10px 0px 10px;
 			.banner-content-text { padding: 15px 25px 25px 25px; }
 		}
 	}
